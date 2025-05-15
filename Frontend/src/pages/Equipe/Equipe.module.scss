@@ -1,0 +1,86 @@
+.page {
+    background-color: #FAFAF5; // offWhite
+    color: #333333;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+// HERO
+.hero {
+    background-color: #FAFAF5;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .heroContainer {
+    max-width: 80rem;
+    margin: 0 auto;
+    background-color: #D8E2DC; // moss
+    border-radius: 1rem;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+    h2 {
+      font-size: 1.875rem;
+      font-weight: bold;
+      color: #A8C3A0;
+      margin-bottom: 0.75rem;
+    }
+  
+    p {
+      font-size: 0.875rem;
+      color: #4B5563;
+    }
+  }
+  
+  // EQUIPE
+  .teamSection {
+    padding: 4rem 1rem;
+  }
+  
+  .grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+  
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  
+    img {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 9999px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+  
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #A8C3A0;
+    }
+  
+    .role {
+      font-size: 0.875rem;
+      color: #718096;
+      margin-top: 0.25rem;
+    }
+  
+    .bio {
+      font-size: 0.875rem;
+      margin-top: 1rem;
+      color: #4B5563;
+    }
+  }
+  
+  

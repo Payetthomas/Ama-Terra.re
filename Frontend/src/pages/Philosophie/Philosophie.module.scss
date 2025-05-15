@@ -1,0 +1,81 @@
+.page {
+    background-color: #FAFAF5; // offWhite
+    color: #333333;
+    font-family: 'Nunito', sans-serif;
+  }
+  
+// HERO
+.hero {
+    background-color: #FAFAF5;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .heroContainer {
+    max-width: 80rem;
+    margin: 0 auto;
+    background-color: #D8E2DC; // moss
+    border-radius: 1rem;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+    h2 {
+      font-size: 1.875rem;
+      font-weight: bold;
+      color: #A8C3A0;
+      margin-bottom: 0.75rem;
+    }
+  
+    p {
+      font-size: 0.875rem;
+      color: #4B5563;
+    }
+  }
+  
+  // VALEURS
+  .values {
+    padding: 2rem 1rem;
+  }
+  
+  .wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .engagement {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+  
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+  
+      @media (min-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
+  
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #A8C3A0;
+      margin-bottom: 0.5rem;
+    }
+  
+    p {
+      font-size: 0.875rem;
+      color: #4B5563;
+    }
+  }
+  

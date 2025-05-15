@@ -1,0 +1,51 @@
+.newsletter {
+    background-color: #FDE4BC;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-top: 1px solid #e5e7eb; /* ✅ on garde ça pour séparer du contenu */
+    margin-top: 2rem; /* ✅ Supprimer la marge qui pousse le Newsletter vers le bas */
+    margin-bottom: 0;
+  }
+  
+  .newsletter__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .newsletter__subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .newsletter__form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .newsletter__input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    min-width: 250px;
+    font-size: 1rem;
+  }
+  
+  .newsletter__button {
+    background-color: #C0DCC3;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #74AFA5;
+    }
+  }
+  

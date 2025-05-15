@@ -1,0 +1,115 @@
+.contactPage {
+    background-color: #FAFAF5;
+    color: #333;
+    font-family: 'Nunito', sans-serif;
+    h2, h3 {
+      font-weight: bold;
+    }
+  
+    .hero {
+      background-color: #F4EBD0;
+      text-align: center;
+      padding: 4rem 1rem;
+  
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+  
+      p {
+        font-size: 0.95rem;
+        color: #555;
+      }
+    }
+  
+    .formSection {
+      padding: 4rem 1rem;
+  
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: auto;
+  
+        @media (min-width: 768px) {
+          grid-template-columns: 1fr 1fr;
+        }
+        h3 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+        }
+      }
+  
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        label {
+          display: flex;
+          flex-direction: column;
+          font-weight: 500;
+          font-size: 0.9rem;
+  
+          input, textarea {
+            margin-top: 0.3rem;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+  
+            &:focus {
+              outline: none;
+              border-color: #A8C3A0;
+              box-shadow: 0 0 0 2px rgba(168, 195, 160, 0.2);
+            }
+          }
+        }
+  
+        button {
+          background-color: #A8C3A0;
+          color: white;
+          padding: 0.8rem 1.5rem;
+          border: none;
+          border-radius: 6px;
+          font-weight: 600;
+          cursor: pointer;
+          align-self: start;
+          transition: background 0.3s;
+  
+          &:hover {
+            background-color: #7ba278;
+          }
+        }
+      }
+
+      .message {
+        margin-top: 1rem;
+        text-align: center;
+        color: #2e7d32;
+      }
+  
+      .infos {
+        margin-left: 10rem;
+        ul {
+          list-style: none;
+          padding: 0;
+          margin-bottom: 1.5rem;
+  
+          li {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+          }
+        }
+  
+        img {
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+          width: 100%;
+        }
+      }
+    }
+  }
+  

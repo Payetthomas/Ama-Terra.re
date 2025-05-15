@@ -1,0 +1,147 @@
+.home-page {
+  background-color: #FAFAF5; // offWhite
+  color: #333;
+  font-family: 'Nunito', sans-serif;
+
+  .home-content {
+    h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #A8C3A0; // sage
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      
+
+      &.white {
+        background-color: #ffffff;
+
+      }
+
+      &.offWhite {
+        background-color: #FAFAF5;
+      }
+
+      &.values {
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2rem;
+          text-align: center;
+
+          div {
+            text-align: center;
+
+            .emoji {
+              font-size: 2.5rem;
+            }
+
+            h4 {
+              margin-top: 0.5rem;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+
+      &.products {
+        .home-card {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+          margin-bottom: 1rem;
+          margin-inline: 4rem;
+        }
+
+        .view-all {
+          text-align: center;
+          margin-top: 2rem;
+
+          a {
+            color: #A8C3A0;
+            font-weight: 500;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &.workshops {
+        .workshop-card {
+          background-color: #F4EBD0; // sand
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          text-align: center;
+
+          h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+          }
+
+          p {
+            margin: 0.25rem 0;
+            color: #555;
+          }
+
+          a {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #A8C3A0;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+
+            &:hover {
+              background-color: #7ba278;
+            }
+          }
+        }
+      }
+
+      &.team {
+        margin-bottom: 4rem;
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 2rem;
+          justify-items: center; // 💡 Centrage horizontal des enfants
+        }
+      
+        .member {
+          display: flex;          
+          flex-direction: column;  
+          align-items: center;      
+          text-align: center;
+
+          img {
+            border-radius: 999px;
+            width: 10rem;
+            height: 10rem;
+            object-fit: cover;
+          }
+
+          h4 {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+          }
+
+          p {
+            font-size: 0.85rem;
+            color: #665;
+          }
+        }
+      }
+    }
+  }
+}

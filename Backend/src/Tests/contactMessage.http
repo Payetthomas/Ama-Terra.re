@@ -1,0 +1,10 @@
+### Envoie d'un message
+POST http://localhost:1818/api/contact-message
+Content-Type: application/json
+
+{
+    "name": "test",
+    "email": "test@example.com",
+    "subject": "un test",
+    "message": "un test rest de message du form contact"
+}

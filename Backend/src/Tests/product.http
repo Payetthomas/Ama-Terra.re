@@ -1,0 +1,47 @@
+### Get all products
+GET http://localhost:1818/api/product
+Accept: application/json
+
+###
+
+### Get one product
+GET http://localhost:1818/api/product/1
+Accept: application/json
+
+###
+
+### Create new product
+POST http://localhost:1818/api/product
+Content-Type: application/json
+
+{
+  "title": "Huile essentielle de Thomas",
+  "description": "Tonifiante et purifiante",
+  "price": 8.99,
+  "image": "https://via.placeholder.com/300x300.png?text=Citron",
+  "stock": 30,
+  "category_id": 1,
+  "supplier_id": 1
+}
+
+###
+
+###  Update product 
+PUT http://localhost:1818/api/product/1
+Content-Type: application/json
+
+{
+  "title": "Huile essentielle de citron (mise à jour)",
+  "description": "Tonifiante et purifiante (édition)",
+  "price": 7.90,
+  "image": "https://via.placeholder.com/300x300.png?text=Citron+Update",
+  "stock": 25,
+  "category_id": 1,
+  "supplier_id": 1
+}
+
+###
+
+### Delete product
+DELETE http://localhost:1818/api/product/7
+Accept: application/json

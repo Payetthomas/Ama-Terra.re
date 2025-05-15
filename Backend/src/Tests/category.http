@@ -1,0 +1,14 @@
+POST http://localhost:1818/api/category
+Content-Type: application/json
+
+{
+    "name" : "Huile essentiel"
+}
+
+###
+DELETE http://localhost:1818/api/category/3
+Content-Type: application/json
+
+###
+GET  http://localhost:1818/api/category
+Content-Type: application/json

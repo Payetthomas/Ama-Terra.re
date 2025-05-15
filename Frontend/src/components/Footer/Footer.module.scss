@@ -1,0 +1,26 @@
+.footer {
+    background-color: #A8C3A0; // sage
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 0;
+  
+    p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+  
+      &:first-of-type {
+        font-weight: 500;
+      }
+  
+      &:last-of-type {
+        font-style: italic;
+        opacity: 0.9;
+      }
+    }
+  
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+  

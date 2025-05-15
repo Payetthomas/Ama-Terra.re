@@ -1,0 +1,27 @@
+### POST un nouveau fournisseur
+POST http://localhost:1818/api/supplier
+Content-Type: application/json
+
+{
+  "name": "EssenciA",
+  "contact_email": "contact@essencia.fr",
+  "phone": "0145896321",
+  "adresse": "45 avenue des huiles, 75011 Paris"
+}
+
+### PUT modifier un fournisseur existant
+PUT http://localhost:1818/api/supplier/1
+Content-Type: application/json
+
+{
+  "name": "EssenciA Bio",
+  "contact_email": "contact@essenciabio.fr",
+  "phone": "0145899999",
+  "adresse": "47 avenue des huiles, 75011 Paris"
+}
+
+
+### DELETE un fournisseur existant (ex: ID = 1)
+DELETE http://localhost:1818/api/supplier/1
+
+### Get All d
