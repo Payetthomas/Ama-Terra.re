@@ -68,5 +68,5 @@ Développée en fullstack **TypeScript** avec **React**, **Express.js**, **Seque
 
 | Homepage | Stock | Ajout de produit |
 |---------|-----------|------------------|
-| ![](./Frontend/src/assets/homepage.png) | ![]() | ![]() |
+| ![](./Frontend/src/assets/homepage.png) | ![](./Frontend/src/assets/stock-admin.png) | ![](./Frontend/src/assets/addProduct.png) |
 
