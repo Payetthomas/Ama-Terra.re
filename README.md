@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# 🌿 Ama Terra – Bien-être Naturel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Ama Terra** est une plateforme e-commerce dédiée aux produits de bien-être naturels et aux ateliers autour de la santé, du local et de la cosmétique artisanale.
 
-Currently, two official plugins are available:
+Développée en fullstack **TypeScript** avec **React**, **Express.js**, **Sequelize** et une base PostgreSQL, ce projet est conçu pour refléter mes compétences techniques, mon sens du détail et ma capacité à livrer un projet complet, prêt pour la production.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🎯 Objectifs du projet
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 💡 Valoriser des produits naturels, artisanaux et locaux.
+- 🛒 Proposer une expérience e-commerce fluide et responsive.
+- 📆 Mettre en avant des ateliers bien-être accessibles à tous.
+- 🧑‍💼 Offrir une interface d’administration simple pour gérer les produits, fournisseurs, catégories, promotions, etc.
+- 🔐 Sécuriser les données utilisateur avec un système de connexion/inscription robuste (JWT + bcrypt).
+- 📬 Intégrer une newsletter et un formulaire de contact avec envoi d’email.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Stack technique
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Frontend
+- ⚛️ **React 18 + TypeScript**
+- 🧩 **React Router DOM** pour la navigation
+- 🎨 **SCSS Modules** avec une charte graphique douce et naturelle
+- 🧠 **Axios** pour les appels API
+- 📦 Architecture composants réutilisables (`CardProduct`, `Hero`, `Newsletter`, etc.)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Backend
+- 🚂 **Express.js**
+- 🗃️ **Sequelize** (ORM) + **PostgreSQL**
+- 🔐 Authentification JWT + bcrypt
+- 🛠️ Middleware personnalisés (auth, validation)
+- 📨 **Nodemailer** pour le formulaire de contact
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+## 🔒 Authentification
+
+- Enregistrement / connexion avec **validation via Joi**
+- Stockage sécurisé du mot de passe avec **bcrypt**
+- Token JWT stocké côté client pour session persistante
+- Système de **rôles utilisateurs** (`admin`, `client`, etc.)
+
+---
+
+## 📦 Fonctionnalités
+
+### Utilisateur
+- 🛍️ Visualisation des produits et des promotions
+- 🔍 Recherche par mot-clé
+- 🧘 Découverte des ateliers
+- 🗣️ Formulaire de contact avec envoi d’email
+- 📨 Newsletter
+
+### Admin
+- ✏️ CRUD complet sur :
+  - Produits
+  - Fournisseurs
+  - Catégories
+  - Promotions (par prix ou pourcentage)
+- 🛡️ Système de rôles (via table `role` + `user_role`)
+- 📊 Interface de gestion personnalisée
+
+---
+
+## 📸 Aperçu
+
+| Homepage | Catalogue | Ajout de produit |
+|---------|-----------|------------------|
+| ![](./screens/homepage.jpg) | ![](./screens/catalogue.jpg) | ![](./screens/add-product.jpg) |
+
