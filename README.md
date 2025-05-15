@@ -66,7 +66,7 @@ Développée en fullstack **TypeScript** avec **React**, **Express.js**, **Seque
 
 ## 📸 Aperçu
 
-| Homepage | Catalogue | Ajout de produit |
+| Homepage | Stock | Ajout de produit |
 |---------|-----------|------------------|
-| ![](./screens/homepage.jpg) | ![](./screens/catalogue.jpg) | ![](./screens/add-product.jpg) |
+| ![]() | ![]() | ![]() |
 
