@@ -1,8 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/lotus.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchModal from "../Searchbar/Searchbar";
 import styles from "./navbar.module.scss";
 

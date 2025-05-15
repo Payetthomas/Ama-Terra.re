@@ -5,8 +5,8 @@ import CardProduct from "../../components/Cards/Card/Card";
 import Hero from "../../components/Hero/Hero";
 import styles from "./Home.module.scss";
 
-import Laurence from "../../assets/Laurence.jpeg";
-import Veronique from "../../assets/Veronique.jpeg";
+import photo from "../../assets/photo-team.png";
+
 
 
 const Home = () => {
@@ -100,12 +100,12 @@ const Home = () => {
             <h3>Rencontrez notre équipe</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className={styles.member}>
-                <img src={Laurence} alt="Marine" />
+                <img src={photo} alt="Marine" />
                 <h4>Laurence</h4>
                 <p>Animé par le goût du travail bien fait, elle pousse chaque tâche jusqu’à la perfection.</p>
               </div>
               <div className={styles.member}>
-                <img src={Veronique} alt="Olivier" />
+                <img src={photo} alt="Olivier" />
                 <h4>Véronique</h4>
                 <p>Amoureuse des plantes, elle partage avec enthousiasme ses connaissances pour vous offrir les meilleurs conseils.</p>
               </div>

@@ -7,13 +7,14 @@ import AddProduct from "./pages/Admin/AddProduct.tsx";
 import Stock from "./pages/Admin/Stock.tsx";
 import AddPromotion from "./pages/Admin/AddPromotion.tsx";
 import AuthPage from "./pages/Auth/AuthPages.tsx";
+import Catalogues from "./pages/Catalogues/Catalogues.tsx";
 
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/produits" element={<Catalogues />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<AdminNewsletter/>} />
             <Route path="/admin/ajout-produit" element={<AddProduct/>} />
