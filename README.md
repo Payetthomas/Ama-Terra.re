@@ -1,4 +1,4 @@
-# 🌿 Ama Terra – Bien-être Naturel
+# Ama Terra
 
 **Ama Terra** est une plateforme e-commerce dédiée aux produits de bien-être naturels et aux ateliers autour de la santé, du local et de la cosmétique artisanale.
 
