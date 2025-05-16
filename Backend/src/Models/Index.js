@@ -9,8 +9,11 @@ import User from "./User.js";
 import Newsletter from "./Newsletter.js";
 import Promotion from "./Promotion.js";
 import ContactMessage from "./ContactMessage.js";
+import Role from "./Role.js";
+import UserRole from "./UserRole.js";
 
 import { client } from "../Data/client.js";
+
 
 // User → Order
 User.hasMany(Order, { foreignKey: "user_id", as: "orders" });
@@ -51,6 +54,11 @@ OrderItem.belongsTo(Product, { foreignKey: "product_id" });
 Product.hasMany(Promotion, {foreignKey: "product_id",as: "promotions"});
 Promotion.belongsTo(Product, {foreignKey: "product_id",as: "product"});
 
+// Role → User
+User.belongsToMany(Role, { through: UserRole, foreignKey: "user_id" });
+Role.belongsToMany(User, { through: UserRole, foreignKey: "role_id" });
+
+
 export {
     client,
     Category,
@@ -63,5 +71,7 @@ export {
     Supplier,
     User, 
     Promotion,
-    ContactMessage
+    ContactMessage,
+    Role,
+    UserRole
 };

@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import  Home from "./pages/Home/Home.tsx"; 
-import About from "./pages/About.tsx"; 
 import Contact from "./pages/Contact/Contact.tsx"; 
 import AdminNewsletter from "./components/Newsletter/AdminNewsletter.tsx";
 import AddProduct from "./pages/Admin/AddProduct.tsx";
