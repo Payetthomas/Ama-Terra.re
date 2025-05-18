@@ -55,8 +55,8 @@ Product.hasMany(Promotion, {foreignKey: "product_id",as: "promotions"});
 Promotion.belongsTo(Product, {foreignKey: "product_id",as: "product"});
 
 // Role → User
-User.belongsToMany(Role, { through: UserRole, foreignKey: "user_id" });
-Role.belongsToMany(User, { through: UserRole, foreignKey: "role_id" });
+User.belongsToMany(Role, { through: UserRole, foreignKey: "user_id", otherKey: "role_id" });
+Role.belongsToMany(User, { through: UserRole, foreignKey: "role_id", otherKey: "user_id" });
 
 
 export {

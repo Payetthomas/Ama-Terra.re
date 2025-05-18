@@ -6,7 +6,8 @@ import { router as categoryRouter } from "./category.js";
 import { router as supplierRouter} from "./supplier.js";
 import { router as promotionRouter } from "./promotion.js";
 import { router as authRouter } from "./auth.js";
-import { router as contactMessage } from "./contactMessage.js"; 
+import { router as contactMessage } from "./contactMessage.js";
+import { router as roleRouter } from "./role.js";
 
 export const router = Router();
 
@@ -23,4 +24,6 @@ router.use('/promotion', promotionRouter);
 router.use('/auth', authRouter);
 
 router.use('/contact-message', contactMessage);
+
+router.use('/role', roleRouter);
 

@@ -1,0 +1,45 @@
+### Créer un nouveau rôle
+POST http://localhost:1818/api/role
+Content-Type: application/json
+
+{
+  "name": "admin"
+}
+
+###
+
+### Récupérer tous les rôles avec les utilisateurs
+GET http://localhost:1818/api/role
+
+###
+
+### Récupérer un rôle par ID
+GET http://localhost:1818/api/role/1
+
+###
+
+### Mettre à jour un rôle
+PUT http://localhost:1818/api/role/1
+Content-Type: application/json
+
+{
+  "name": "utilisateur"
+}
+
+###
+
+### Supprimer un rôle
+DELETE http://localhost:1818/api/role/1
+
+###
+
+### Associer un utilisateur à un rôle
+POST http://localhost:1818/api/role/2/user/1
+
+###
+
+### Retirer un rôle d’un utilisateur
+DELETE http://localhost:1818/api/role/2/user/1
+
+
+

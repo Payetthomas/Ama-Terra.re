@@ -17,6 +17,7 @@ export const productController = {
             res.status(201).json(newProduct);
             
         } catch (error) {
+            console.error(error);
             res.status(500).json({ message: "Erreur serveur !" })
         }
     },
@@ -45,6 +46,7 @@ export const productController = {
             res.status(200).json(products);
             
         } catch (error) {
+            console.error(error);
             res.status(500).json({ message: "Erreur serveur !" })
         }
     },
@@ -80,6 +82,7 @@ export const productController = {
             res.status(200).json(product);
 
         } catch (error) {
+            console.error(error);
             res.status(500).json({ message: "Erreur serveur !" })
         }
     },
@@ -111,6 +114,7 @@ export const productController = {
             res.status(200).json( {message:"Produit mis à jour avec succès ✅", product} );
 
         } catch (error) {
+            console.error(error);
             res.status(500).json( {message: "Erreur serveur !"} )
         }
     }, 
@@ -131,6 +135,7 @@ export const productController = {
              res.status(204).end();
             
         } catch (error) {
+            console.error(error);
             res.status(500).json( {message: "Erreur serveur !"} )
         }
     }
