@@ -36,8 +36,10 @@ const Contact = () => {
   return (
     <div className={styles.contactPage}>
       <section className={styles.hero}>
+        <div className={styles.container}>
         <h2>Nous contacter</h2>
         <p>Une question sur nos ateliers ou produits ? Écrivez-nous ou passez directement au magasin 🌻</p>
+        </div>
       </section>
 
       <section className={styles.formSection}>

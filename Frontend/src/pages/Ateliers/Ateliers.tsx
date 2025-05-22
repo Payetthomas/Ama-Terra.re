@@ -6,7 +6,7 @@ const Ateliers = () => {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+        <div className={styles.container}>
           <h2>Nos ateliers bien-être</h2>
           <p>Prenez une pause pour vous reconnecter à l'essentiel</p>
         </div>

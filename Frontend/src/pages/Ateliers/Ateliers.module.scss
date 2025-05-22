@@ -6,32 +6,27 @@
   
   // HERO
   .hero {
-    background-color: #FAFAF5;
+    background-color: #F4EBD0; // sand
     padding: 4rem 1rem;
     text-align: center;
-  }
+    color: #6a936a;
   
-  .heroContainer {
-    max-width: 80rem;
-    margin: 0 auto;
-    background-color: #D8E2DC; // moss
-    border-radius: 1rem;
-    padding: 2.5rem 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    .container {
+      max-width: 768px;
+      margin: 0 auto;
   
-    h2 {
-      font-size: 1.875rem;
-      font-weight: bold;
-      color: #A8C3A0;
-      margin-bottom: 0.75rem;
-    }
+      h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
   
-    p {
-      font-size: 0.875rem;
-      color: #4B5563;
+      p {
+        font-size: 0.875rem;
+        color: #4B5563; // gris doux
+      }
     }
   }
-  
   // LISTE ATELIERS
   .ateliers {
     padding: 4rem 1rem;

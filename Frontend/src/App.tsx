@@ -3,9 +3,15 @@ import AppRoutes from "./routes";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Newsletter from "./components/Newsletter/Newsletter";
+import { useLocation } from "react-router-dom";
 import './style.css';
 
-const App: React.FC = () => {
+const App = () => {
+
+    const location = useLocation();
+    
+    const isAdmin = location.pathname.startsWith("/admin");
+
   return (
     <div className="app">
       <div className="test">
@@ -13,7 +19,7 @@ const App: React.FC = () => {
       <main className="flex-grow">
         <AppRoutes />
       </main>
-      <Newsletter/>
+      {!isAdmin && <Newsletter/>}
       <Footer />
     </div>
     </div>

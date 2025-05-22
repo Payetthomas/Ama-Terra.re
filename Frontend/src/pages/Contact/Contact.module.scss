@@ -7,18 +7,25 @@
     }
   
     .hero {
-      background-color: #F4EBD0;
-      text-align: center;
+      background-color: #F4EBD0; // sand
       padding: 4rem 1rem;
-  
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-      }
-  
-      p {
-        font-size: 0.95rem;
-        color: #555;
+      text-align: center;
+      color: #6a936a;
+    
+      .container {
+        max-width: 768px;
+        margin: 0 auto;
+    
+        h2 {
+          font-size: 2rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+    
+        p {
+          font-size: 0.875rem;
+          color: #4B5563; // gris doux
+        }
       }
     }
   

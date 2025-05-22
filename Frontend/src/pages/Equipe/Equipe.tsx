@@ -4,7 +4,7 @@ const Equipe = () => {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+        <div className={styles.container}>
           <h2>L'équipe du magasin</h2>
           <p>
             Derrière Bien-Être Naturel, une équipe engagée, chaleureuse et passionnée

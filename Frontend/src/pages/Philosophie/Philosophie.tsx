@@ -5,7 +5,7 @@ const Philosophie = () => {
     <div className={styles.page}>
       {/* Hero */}
       <section className={styles.hero}>
-        <div className={styles.heroContainer}>
+        <div className={styles.container}>
           <h2>Notre philosophie</h2>
           <p>
             Bien-Être Naturel est né d’une envie simple : revenir à l’essentiel, en douceur, avec du sens 🌾
