@@ -8,6 +8,7 @@ import { router as promotionRouter } from "./promotion.js";
 import { router as authRouter } from "./auth.js";
 import { router as contactMessage } from "./contactMessage.js";
 import { router as roleRouter } from "./role.js";
+import { checkRoles } from "../Validators/checkRoles.js";
 
 export const router = Router();
 

@@ -1,7 +1,7 @@
-import { User } from "../Models/Index.js";
+import { User, Role } from "../Models/Index.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { authSchema } from "../Validators/authValidator.js";
+import { authSchema, passwordSchema } from "../Validators/authValidator.js";
 
 const JWT_SECRET = process.env.JWT_SECRET; 
 
@@ -14,6 +14,23 @@ export const authController = {
 
         const { firstname, lastname, email, password, profil_img } = value;
 
+        const validatePassword =passwordSchema.validate(password, {list: true});
+
+        if (validatePassword.length > 0) {
+            const messages = {
+              min: "au moins 8 caractères",
+              max: "pas plus de 50 caractères",
+              uppercase: "au moins une majuscule",
+              lowercase: "au moins une minuscule",
+              digits: "au moins un chiffre",
+              symbols: "au moins un caractère spécial",
+              spaces: "aucun espace"
+            };
+        
+            const message = validatePassword.map(err => messages[err] || err).join(", ");
+            return res.status(400).json({ message: `Mot de passe invalide : ${message}` });
+          }
+        
         try {
             const existingMail = await User.findOne( {where: {email} } );
             if(existingMail){
@@ -42,7 +59,17 @@ export const authController = {
         const {email, password} = req.body;
 
         try {
-            const user = await User.findOne( {where: {email} } ); 
+            const user = await User.findOne({
+
+                where: {email},
+                
+                include: [
+                    {
+                        model: Role,
+                        through: {attributes : []}
+                    }
+                ]
+            }); 
             if(!user) {
                 return res.status(404).json({ message: "Email ou mot de passe incorrect" });
             }
@@ -50,9 +77,11 @@ export const authController = {
             const checkPassword = await bcrypt.compare(password, user.password);
             if(!checkPassword) {
                 return res.status(404).json({ message: "Email ou mot de passe incorrect" });
-            }
+            };
 
-            const token = jwt.sign( {id: user.id, email: user.email}, JWT_SECRET );
+            const userRoles = user.Roles?.map(role => role.name) || ["user"];
+
+            const token = jwt.sign( {id: user.id, email: user.email, role: userRoles}, JWT_SECRET );
 
             res.status(200).json( {message: "Bonjour !", token} );
 

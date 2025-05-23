@@ -8,6 +8,16 @@ Content-Type: application/json
 
 ###
 
+### Créer un nouveau rôle
+POST http://localhost:1818/api/role
+Content-Type: application/json
+
+{
+  "name": "client"
+}
+
+###
+
 ### Récupérer tous les rôles avec les utilisateurs
 GET http://localhost:1818/api/role
 
@@ -34,7 +44,7 @@ DELETE http://localhost:1818/api/role/1
 ###
 
 ### Associer un utilisateur à un rôle
-POST http://localhost:1818/api/role/2/user/1
+POST http://localhost:1818/api/role/2/user/4
 
 ###
 

@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { productController } from "../Controllers/productController.js";
+import { checkRoles } from "../Validators/checkRoles.js";
 
 export const router = Router();
 
