@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { TProduct } from "../../@types/cardTypes.ts";
 import CardProduct from "../../components/Cards/Card/Card";
@@ -69,7 +70,7 @@ const Home = () => {
           </div>
 
           <div className={styles["view-all"]}>
-            <a href="#">Voir tout le catalogue →</a>
+            <Link to= "/produits">Voir tout le catalogue →</Link>
           </div>
         </section>
 

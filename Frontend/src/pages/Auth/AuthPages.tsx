@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import { TDecodedUser } from "../../@types/userTypes";
 import axios from "axios";
+import { useAuth } from "../../AuthContext/AuthContext";
 import styles from "./AuthPages.module.scss";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const { user, setUser } = useAuth();
 
   const [form, setForm] = useState({
     firstname: "",
@@ -12,6 +18,12 @@ const AuthPage = () => {
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -24,8 +36,8 @@ const AuthPage = () => {
 
     try {
       const endpoint = isLogin
-        ? "http://localhost:1818/api/login"
-        : "http://localhost:1818/api/register";
+        ? "http://localhost:1818/api/auth/login"
+        : "http://localhost:1818/api/auth/register";
 
       const payload = isLogin
         ? { email: form.email, password: form.password }
@@ -34,10 +46,15 @@ const AuthPage = () => {
       const res = await axios.post(endpoint, payload);
 
       setMessage(res.data.message);
+
       if (isLogin) {
-        // Stocker le token si tu utilises JWT
+        // Stock le token
         localStorage.setItem("token", res.data.token);
+
+        const decodeUser = jwtDecode<TDecodedUser>(res.data.token);
+        setUser(decodeUser);
       }
+
     } catch (err: any) {
       setMessage(err.response?.data?.message || "Erreur");
     }
