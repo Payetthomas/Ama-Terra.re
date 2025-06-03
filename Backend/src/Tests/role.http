@@ -44,7 +44,7 @@ DELETE http://localhost:1818/api/role/1
 ###
 
 ### Associer un utilisateur à un rôle
-POST http://localhost:1818/api/role/2/user/4
+POST http://localhost:1818/api/role/1/user/3
 
 ###
 

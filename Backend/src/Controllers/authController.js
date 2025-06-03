@@ -81,12 +81,52 @@ export const authController = {
 
             const userRoles = user.Roles?.map(role => role.name) || ["user"];
 
-            const token = jwt.sign( {id: user.id, email: user.email, role: userRoles}, JWT_SECRET );
+            const token = jwt.sign( {id: user.id, name: user.firstname, email: user.email, role: userRoles}, JWT_SECRET );
 
             res.status(200).json( {message: "Bonjour !", token} );
 
         } catch (error) {
             res.status(500).json({ message: "Erreur serveur" });
+        }
+    },
+
+    tokenLog: async (req, res) => {
+
+        try {
+            const authHeader = req.headers.authorization;
+
+            if (!authHeader || !authHeader.startsWith("Bearer")) {
+                return res.status(401).json({ message: "Token manquant" });
+            }
+
+            const token = authHeader.split(" ")[1];
+
+            const decoded = jwt.verify(token, JWT_SECRET);
+
+            const user = await User.findByPk(decoded.id, {
+                attributes: ["id", "firstname", "lastname", "email"],
+                include: [
+                    {
+                        model: Role,
+                        through: { attributes: [] }
+                    }
+                ]
+            });
+
+            if (!user) return res.status(404).json({ message: "Utilisateur introuvable" });
+
+            const roles = user.Roles?.map(role => role.name) || [];
+
+            res.status(200).json({
+            id: user.id,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            role: roles[0] || "user",
+            });
+
+        } catch (error) {
+            res.status(401).json({ message: "Token invalide ou expiré" });
         }
     }
 };

@@ -9,6 +9,17 @@ Content-Type: application/json
     "password": "mdpadmintest"
 }
 
+### Creation d'un user
+POST http://localhost:1818/api/auth/register
+Content-Type: application/json
+
+{
+    "firstname": "Thomas",
+    "lastname": "Payet",
+    "email": "thomaspayet.tp@example.com",
+    "password": "Adminmdp974!"
+}
+
 
 ### Connexion d'un user
 POST http://localhost:1818/api/auth/login
