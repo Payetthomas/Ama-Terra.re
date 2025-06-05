@@ -1,73 +1,86 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { TUser, TDecodedUser } from "../@types/userTypes";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import { TUser, TDecodedUser } from "../@types/userTypes";
 
 type TAuthContexte = {
-    user: TUser | TDecodedUser |null;
-    setUser: (user: TUser | TDecodedUser |null) => void;
-    logout: () => void;
-    isLoading: boolean;
+  user: TUser | TDecodedUser | null;
+  setUser: (user: TUser | TDecodedUser | null) => void;
+  login: (token: string) => void;
+  logout: () => void;
 };
 
 type TAuthProvider = {
-    children: ReactNode,
-}; 
+  children: ReactNode;
+};
 
 const AuthContext = createContext<TAuthContexte | undefined>(undefined);
 
 export const AuthProvider = ({ children }: TAuthProvider) => {
-    const [user, setUser] = useState<TUser | TDecodedUser |null>(null);
-    const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<TUser | TDecodedUser | null>(null);
 
-    const logout = () => {
-        localStorage.removeItem("token");
-        setUser(null);
-      };    
-  
-    useEffect(() => {
+  const login = async (token: string) => {
+    localStorage.setItem("token", token);
 
-      const fetchUser = async () => {
+    try {
+      const decoded = jwtDecode<TDecodedUser>(token);
+      setUser(decoded);
 
-        const token = localStorage.getItem("token");
-  
-        if (token) {
-          try {
+      const res = await axios.get("http://localhost:1818/api/auth/token", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-            const decoded = jwtDecode<TDecodedUser>(token);
-            console.log(`Ce que donne le jwtDecode: ${decoded}`);
-            setUser(decoded);
+      setUser(res.data);
+    } catch (error) {
+      console.error("Erreur pendant le login()", error);
+      localStorage.removeItem("token");
+      setUser(null);
+    }
+  };
 
-            const res = await axios.get("http://localhost:1818/api/auth/token", {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            });
-            setUser(res.data);
-          } catch (error) {
-            console.error("Erreur de la récupération du token dans le localStorage :", error);
-            localStorage.removeItem("token");
-            setUser(null);
-          }
+  const logout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const token = localStorage.getItem("token");
+
+      if (token) {
+        try {
+          const decoded = jwtDecode<TDecodedUser>(token);
+          setUser(decoded);
+
+          const res = await axios.get("http://localhost:1818/api/auth/token", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          setUser(res.data);
+        } catch (error) {
+          console.error("Erreur dans le fetchUser()", error);
+          localStorage.removeItem("token");
+          setUser(null);
         }
-      setIsLoading(false);
-      };
-  
-      fetchUser();
-    }, []);
+      }
+    };
 
-    return (
-        <AuthContext.Provider value={{user, setUser, logout, isLoading}}>
-            {children}
-        </AuthContext.Provider>
-    );
+    fetchUser();
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ user, setUser, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => {
-
-    const context = useContext(AuthContext); 
-
-    if(!context) throw new Error("erruer context");
-
-    return context;
+  const context = useContext(AuthContext);
+  if (!context) throw new Error("useAuth must be used inside AuthProvider");
+  return context;
 };

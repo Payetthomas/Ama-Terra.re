@@ -4,15 +4,19 @@ import Contact from "./pages/Contact/Contact.tsx";
 import AdminNewsletter from "./components/Newsletter/AdminNewsletter.tsx";
 import AddProduct from "./pages/Admin/AddProduct.tsx";
 import Stock from "./pages/Admin/Stock.tsx";
-import AddPromotion from "./pages/Admin/AddPromotion.tsx";
 import AuthPage from "./pages/Auth/AuthPages.tsx";
 import Catalogues from "./pages/Catalogues/Catalogues.tsx";
 import Ateliers from "./pages/Ateliers/Ateliers.tsx";
 import Philosophie from "./pages/Philosophie/Philosophie.tsx";
 import Equipe from "./pages/Equipe/Equipe.tsx";
+import { useAuth } from "./AuthContext/AuthContext.tsx";
+import AdminPromotions from "./pages/Admin/AdminPromotions.tsx";
 
 
 const AppRoutes = () => {
+
+    const { user } = useAuth();
+
     return (
         <Routes>
             <Route path="/" element={<Home />} />
@@ -21,11 +25,15 @@ const AppRoutes = () => {
             <Route path="/ateliers" element={<Ateliers />} />
             <Route path="/equipe" element={<Equipe />} />
             <Route path="/philosophie" element={<Philosophie />} />
-            <Route path="/admin" element={<AdminNewsletter/>} />
+            {user?.role === "admin" && 
+            (<>
+            <Route path="/admin/newsletter" element={<AdminNewsletter/>} />
             <Route path="/admin/ajout-produit" element={<AddProduct/>} />
             <Route path="/admin/ajout-produit/:id" element={<AddProduct/>} />
-            <Route path="/admin/promotion-produit" element={<AddPromotion/>} />
+            <Route path="/admin/promotion-produit" element={<AdminPromotions/>} />
             <Route path="/admin/stock-produit" element={<Stock/>} />
+            </>
+            )}
             <Route path="/connexion" element={<AuthPage/>} />
         </Routes>
     )

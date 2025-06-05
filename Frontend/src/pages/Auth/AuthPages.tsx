@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-import { TDecodedUser } from "../../@types/userTypes";
 import axios from "axios";
 import { useAuth } from "../../AuthContext/AuthContext";
 import styles from "./AuthPages.module.scss";
@@ -9,9 +7,6 @@ import styles from "./AuthPages.module.scss";
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
-  const { user, setUser } = useAuth();
-
   const [form, setForm] = useState({
     firstname: "",
     lastname: "",
@@ -19,15 +14,12 @@ const AuthPage = () => {
     password: "",
   });
 
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,13 +40,9 @@ const AuthPage = () => {
       setMessage(res.data.message);
 
       if (isLogin) {
-        // Stock le token
-        localStorage.setItem("token", res.data.token);
-
-        const decodeUser = jwtDecode<TDecodedUser>(res.data.token);
-        setUser(decodeUser);
+        await login(res.data.token);
+        navigate("/");
       }
-
     } catch (err: any) {
       setMessage(err.response?.data?.message || "Erreur");
     }

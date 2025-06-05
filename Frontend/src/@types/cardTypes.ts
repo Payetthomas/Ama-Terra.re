@@ -16,5 +16,10 @@ export type TProduct = {
 
   supplier?: TSupplier,
 
-  promotion?: TPromotion
+  promotions?: TPromotion[]
+  };
+
+  export type TProductPromo = {
+    id: number,
+    title: string
   };

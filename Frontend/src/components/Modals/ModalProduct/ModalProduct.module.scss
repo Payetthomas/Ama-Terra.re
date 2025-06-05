@@ -35,6 +35,27 @@
     height: 100%;
     margin: 0 auto;
   }
+
+  .promo {
+    margin-bottom: 0.5rem;
+  
+    .badge {
+      background: #ff7043;
+      color: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 0.3rem;
+    }
+  
+    .oldPrice {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.9rem;
+    }
+  }
   
   .price {
     color: #A8C3A0;
