@@ -2,7 +2,7 @@ POST http://localhost:1818/api/category
 Content-Type: application/json
 
 {
-    "name" : "Huile essentiel"
+    "name" : "Bain douche"
 }
 
 ###
@@ -11,4 +11,9 @@ Content-Type: application/json
 
 ###
 GET  http://localhost:1818/api/category
+Content-Type: application/json
+
+
+###
+GET  http://localhost:1818/api/category/1
 Content-Type: application/json

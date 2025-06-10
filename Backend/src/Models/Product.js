@@ -27,7 +27,12 @@ Product.init(
 
         image: {
             type: DataTypes.STRING,
-            defaultValue: "mettre un lien vers une image générique"
+            defaultValue: "https://res.cloudinary.com/dossier/placeholder.webp"
+        },
+
+        image_public_id: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
 
         stock: {
@@ -45,7 +50,13 @@ Product.init(
         supplier_id: {
             type: DataTypes.INTEGER,
             references: {model: "supplier", key: "id"}
-        }
+        },
+        
+        is_featured: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false
+        },
     }, 
     {
         sequelize: client, 

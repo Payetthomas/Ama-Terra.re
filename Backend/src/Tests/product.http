@@ -4,6 +4,11 @@ Accept: application/json
 
 ###
 
+###
+GET http://localhost:1818/api/product/featured
+Content-Type: application/json
+###
+
 ### Get one product
 GET http://localhost:1818/api/product/1
 Accept: application/json

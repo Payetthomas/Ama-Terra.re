@@ -1,4 +1,4 @@
-import { Category } from "../Models/Index.js";
+import { Category, Product, Promotion, Supplier } from "../Models/Index.js";
 import { Sequelize } from "sequelize";
 
 export const categoryController = {
@@ -36,6 +36,46 @@ export const categoryController = {
             const fetchCategories = await Category.findAll();
 
             res.status(200).json(fetchCategories);
+            
+        } catch (error) {
+            console.error(error);
+            res.status(500).json( {message: "Erreur serveur !"} );
+        }
+    },
+
+    getOne: async (req, res) => {
+
+        const categoryId = req.params.id; 
+
+        try {
+
+            const category = await Category.findByPk(categoryId, 
+                {
+                    include : [
+                        {
+                            model: Product,
+                            as: "products", 
+
+                            include: [
+                                {
+                                    model: Promotion,
+                                    as: "promotions"
+                                },
+                                {
+                                    model: Supplier,
+                                    as: "supplier",
+                                },
+                            ]
+                        }
+                    ]
+                }
+            ); 
+
+            if (!category) {
+                return res.status(404).json( {message: "Categorie non trouvé !"} )
+            }
+
+            res.status(200).json(category);
             
         } catch (error) {
             console.error(error);

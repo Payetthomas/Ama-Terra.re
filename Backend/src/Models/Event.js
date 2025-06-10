@@ -34,6 +34,12 @@ Event.init(
             defaultValue: 0
         },
 
+        url: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "https://reservationbeaute.fr/ama-terra-97410/prestations-saint-pierre"
+        },          
+
         seats_avaible : {
             type: DataTypes.INTEGER,
             defaultValue: 0

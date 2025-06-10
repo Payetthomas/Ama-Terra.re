@@ -11,6 +11,7 @@ import Promotion from "./Promotion.js";
 import ContactMessage from "./ContactMessage.js";
 import Role from "./Role.js";
 import UserRole from "./UserRole.js";
+import ProductPromotion from "./ProductPromotion.js";
 
 import { client } from "../Data/client.js";
 
@@ -35,7 +36,7 @@ Favorite.belongsTo(Event, { foreignKey: "item_id", constraints: false });
 Product.belongsTo(Category, { foreignKey: "category_id", as: "category" });
 Product.belongsTo(Supplier, { foreignKey: "supplier_id", as: "supplier" });
 
-Category.hasMany(Product, { foreignKey: "category_id" });
+Category.hasMany(Product, { foreignKey: "category_id", as: "products" });
 Supplier.hasMany(Product, { foreignKey: "supplier_id" });
 
 // Event → Category
@@ -51,8 +52,19 @@ Product.hasMany(OrderItem, { foreignKey: "product_id" });
 OrderItem.belongsTo(Product, { foreignKey: "product_id" });
 
 // Product → Promotion
-Product.hasMany(Promotion, {foreignKey: "product_id",as: "promotions"});
-Promotion.belongsTo(Product, {foreignKey: "product_id",as: "product"});
+Product.belongsToMany(Promotion, {
+    through: "product_promotion",
+    foreignKey: "product_id",
+    otherKey: "promotion_id",
+    as: "promotions"
+  });
+  
+  Promotion.belongsToMany(Product, {
+    through: "product_promotion",
+    foreignKey: "promotion_id",
+    otherKey: "product_id",
+    as: "products"
+  });
 
 // Role → User
 User.belongsToMany(Role, { through: UserRole, foreignKey: "user_id", otherKey: "role_id" });
@@ -73,5 +85,6 @@ export {
     Promotion,
     ContactMessage,
     Role,
-    UserRole
+    UserRole,
+    ProductPromotion
 };

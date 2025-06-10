@@ -1,52 +1,44 @@
-### Ajout d'une promotion avec un prix fixe
+### 🟢 Créer une promotion (plusieurs produits)
 POST http://localhost:1818/api/promotion
 Content-Type: application/json
 
 {
-  "title": "Promo huile de lavande",
-  "description": "Prix spécial printemps",
-  "type": "fixed",                        
-  "value": 8.99,                          
-  "start_date": "2025-05-10T00:00:00.000Z",
-  "end_date": "2025-05-20T00:00:00.000Z",
-  "product_id": 1                         
+  "title": "Promo spéciale été ☀️",
+  "description": "20% de réduction sur plusieurs produits",
+  "type": "percentage",
+  "value": 20,
+  "start_date": "2025-06-15",
+  "end_date": "2025-06-30",
+  "product_ids": [19, 20]
 }
 
-### Ajout d'une promotion avec un pourcentage
-POST http://localhost:1818/api/promotion
+###
+
+### 🔁 Récupérer toutes les promotions
+GET http://localhost:1818/api/promotion
+
+###
+
+### 🔁 Récupérer une promotion par ID
+GET http://localhost:1818/api/promotion/1
+
+###
+
+### 📝 Modifier une promotion
+PUT http://localhost:1818/api/promotion/12
 Content-Type: application/json
 
 {
-  "title": "Promo huile de lavande",
-  "description": "Prix spécial printemps",
-  "type": "percentage",                        
-  "value": 20,                          
-  "start_date": "2025-05-10T00:00:00.000Z",
-  "end_date": "2025-05-20T00:00:00.000Z",
-  "product_id": 2                         
+  "title": "Promo mise à jour 🔄",
+  "description": "10€ pour ces produits",
+  "type": "fixed",
+  "value": 10,
+  "start_date": "2025-06-10",
+  "end_date": "2025-06-20",
+  "product_ids": [19, 20]
 }
 
-### Requête invalide 
-POST http://localhost:1818/api/promotion
-Content-Type: application/json
+###
 
-{
-  "product_id": 4
-}
-
-### Modifier une promotion 
-PUT http://localhost:1818/api/promotion/1
-Content-Type: application/json
-
-{
-  "title": "Promo huile de lavande",
-  "description": "Prix spécial printemps",
-  "type": "fixed",                        
-  "value": 2,                          
-  "start_date": "2025-05-10T00:00:00.000Z",
-  "end_date": "2025-05-20T00:00:00.000Z",
-  "product_id": 2                         
-}
-
-### Supprimer une promotion
+### 🗑 Supprimer une promotion
 DELETE http://localhost:1818/api/promotion/1

@@ -7,4 +7,6 @@ router.post("/", categoryController.createOne);
 
 router.get("/", categoryController.getAll);
 
+router.get("/:id", categoryController.getOne);
+
 router.delete("/:id", categoryController.deleteOne);
