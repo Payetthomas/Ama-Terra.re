@@ -8,7 +8,7 @@ const Stock = () => {
 
     const navigate = useNavigate(); 
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<TProduct[]>([]);
 
     const fetchProducts = async () => {
 
@@ -20,7 +20,25 @@ const Stock = () => {
 
         await axios.delete(`http://localhost:1818/api/product/${id}`);
         fetchProducts(); 
-    }; 
+    };
+    
+    const toggleFeatured = async (id: number) => {
+
+      try {
+        const res = await axios.put(`http://localhost:1818/api/product/${id}/featured`);
+        
+        setProducts((prevProducts) =>
+          prevProducts.map((product) =>
+            product.id === id
+              ? { ...product, is_featured: res.data.is_featured }
+              : product
+          )
+        );
+
+      } catch (error) {
+        console.error("Erreur mise à jour produit", error);
+      }
+    };
 
     useEffect(() => {
         fetchProducts(); 
@@ -44,6 +62,7 @@ const Stock = () => {
               <th>Stock</th>
               <th>Catégorie</th>
               <th>Fournisseur</th>
+              <th>Mise en avant</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -57,6 +76,13 @@ const Stock = () => {
                 <td>{entry.stock}</td>
                 <td>{entry.category?.name}</td>
                 <td>{entry.supplier?.name}</td>
+
+                <td>
+                  <button onClick={() => toggleFeatured(entry.id)}>
+                  {entry.is_featured ? "❌ Retirer" : "✅ Mettre en avant"}
+                  </button>
+                </td>
+
                 <td>
                   <Link
                     to={`/admin/ajout-produit/${entry.id}`}
@@ -72,6 +98,7 @@ const Stock = () => {
                     🗑️
                   </button>
                 </td>
+
               </tr>
             ))}
           </tbody>

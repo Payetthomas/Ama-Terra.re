@@ -1,92 +1,137 @@
 .card {
-  background-color: white;
-  height: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
+  width: 100%;
+  max-width: 200px;
+  max-height: 350px; 
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #fdfdfb;
+  box-shadow: 0 4px 12px rgba(60, 60, 60, 0.10);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(60, 60, 60, 0.1);
   }
 }
 
 .image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 200px; // correspond à l'image transformée
+  flex-shrink: 0;
+  background-color: #FAFAF5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    object-position: center;
+    display: block;
+  }
 }
 
 .content {
-  padding: 1.5rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content:center;
+  background-color: white;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.description {
-  font-size: 0.9rem;
-  color: #666;
-  flex-grow: 1;
-  margin-bottom: 1rem;
-}
-
-// ✅ Nouveau bloc pour gérer les promotions
-.promo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 0.5rem;
+  color: #475645;
+  text-align: center;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .badge {
-  background-color: #f44336;
+  display: inline-block;
+  background-color: #c97f63;
   color: white;
   font-size: 0.75rem;
-  font-weight: bold;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  margin-bottom: 0.3rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  margin: 0.4rem auto 0;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
 }
 
 .oldPrice {
   text-decoration: line-through;
   color: #999;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .price {
   font-weight: bold;
-  font-size: 1rem;
-  color: #2e7d32; // ✅ vert pour mettre en valeur
-  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  color: #4c6f52;
+}
+
+.noPromoPrice {
+  text-align: center;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #4c6f52;
 }
 
 .button {
-  align-self: flex-start;
-  padding: 0.5rem 1rem;
-  background-color: #A8C3A0;
-  color: white;
-  text-decoration: none;
+  align-self: center;
+  margin-bottom: 0.4rem;
+  padding: 0.4rem 1.4rem;
+  background-color: #b6d2b0;
+  color: #2e3e2d;
   border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: background 0.2s ease;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transition: background 0.3s ease;
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: #8cae85;
+    background-color: #9ebf98;
+  }
+}
+
+// Responsive
+@media (max-width: 600px) {
+  .card {
+    height: 520px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .price,
+  .noPromoPrice {
+    font-size: 1rem;
+  }
+
+  .button {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
   }
 }

@@ -11,6 +11,7 @@ export type TProduct = {
   stock: number,
   category_id: number,
   supplier_id: number,
+  is_featured: boolean,
 
   category?: Tcategory,
 

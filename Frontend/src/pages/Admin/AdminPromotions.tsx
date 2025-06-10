@@ -23,7 +23,7 @@ const AdminPromotions = () => {
     setEditPromo(null);
   };
 
-  // 🔁 Récupère promotions + produits au chargement
+  // 🔁 Chargement initial des promotions et des produits
   useEffect(() => {
     fetchPromotions();
     fetchProducts();
@@ -81,18 +81,15 @@ const AdminPromotions = () => {
 
       {isOpen && (
         <>
-        <div className={styles.backdrop} onClick={handleCloseModal} />
-        
-            <ModalPromotion
-                promotion={editPromo ?? undefined}
-                products={products}
-                onClose={() => {
-                    fetchPromotions();
-                    handleCloseModal();
-                }}
-            />
-
-       
+          <div className={styles.backdrop} onClick={handleCloseModal} />
+          <ModalPromotion
+            promotion={editPromo ?? undefined}
+            products={products}
+            onClose={() => {
+              fetchPromotions();
+              handleCloseModal();
+            }}
+          />
         </>
       )}
 
@@ -146,7 +143,11 @@ const PromoSection = ({ title, promotions, onEdit, onDelete }: PromoSectionProps
                 <h3>{promo.title}</h3>
                 <p>{promo.description}</p>
                 <p className={styles.meta}>
-                  Produit : {promo.product?.title ?? `#${promo.product_id}`} | Type : {promo.type} | Valeur : {promo.value}
+                  Produits :
+                  {promo.products && promo.products.length > 0
+                    ? promo.products.map((p) => p.title).join(", ")
+                    : " Aucun produit"}
+                  {" | "}Type : {promo.type} | Valeur : {promo.value}
                 </p>
                 <p>
                   Du {new Date(promo.start_date).toLocaleDateString()} au{" "}

@@ -7,7 +7,6 @@ import Stock from "./pages/Admin/Stock.tsx";
 import AuthPage from "./pages/Auth/AuthPages.tsx";
 import Catalogues from "./pages/Catalogues/Catalogues.tsx";
 import Ateliers from "./pages/Ateliers/Ateliers.tsx";
-import Philosophie from "./pages/Philosophie/Philosophie.tsx";
 import Equipe from "./pages/Equipe/Equipe.tsx";
 import { useAuth } from "./AuthContext/AuthContext.tsx";
 import AdminPromotions from "./pages/Admin/AdminPromotions.tsx";
@@ -24,7 +23,6 @@ const AppRoutes = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/ateliers" element={<Ateliers />} />
             <Route path="/equipe" element={<Equipe />} />
-            <Route path="/philosophie" element={<Philosophie />} />
             {user?.role === "admin" && 
             (<>
             <Route path="/admin/newsletter" element={<AdminNewsletter/>} />

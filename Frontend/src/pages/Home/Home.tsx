@@ -13,10 +13,11 @@ import photo from "../../assets/photo-team.png";
 const Home = () => {
   const [products, setProducts] = useState<TProduct[]>([]);
 
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:1818/api/product");
+        const res = await axios.get("http://localhost:1818/api/product/featured");
         setProducts(res.data);
       } catch (error) {
         console.error("Erreur de chargement des produits :", error);
@@ -64,7 +65,7 @@ const Home = () => {
           <h3>Nos produits en lumière</h3>
 
           <div className={styles["home-card"]}>
-            {products.map((product: TProduct) => (
+            {products.slice(0, 3).map((product: TProduct) => (
               <CardProduct key={product.id} {...product} />
             ))}
           </div>

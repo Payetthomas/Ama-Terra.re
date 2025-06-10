@@ -1,7 +1,9 @@
 .header {
   background: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  
   padding: 1rem 0;
+  position: relative;
+  z-index: 100;
 }
 
 .container {
@@ -23,6 +25,7 @@
   color: #A8C3A0;
 }
 
+// Menu de navigation desktop
 .center {
   flex: 2;
   display: flex;
@@ -34,7 +37,6 @@
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    line-height: 1.5;
 
     &:hover {
       color: #A8C3A0;
@@ -52,13 +54,6 @@
       cursor: pointer;
       padding: 0.4rem 0.6rem;
       font-size: 1rem;
-      text-decoration: none;
-
-      // 💡 Ajouté pour un alignement parfait avec les <Link>
-      line-height: 1.5;
-      display: flex;
-      align-items: center;
-      height: 100%;
 
       &:hover {
         color: #A8C3A0;
@@ -128,14 +123,12 @@
   }
 }
 
-// ✅ Message utilisateur connecté
 .username {
   font-weight: 600;
   color: #2e7d32;
   font-size: 0.95rem;
 }
 
-// ✅ Bouton de déconnexion
 .logout {
   padding: 0.4rem 0.8rem;
   background-color: #d32f2f;
@@ -148,5 +141,95 @@
 
   &:hover {
     background-color: #b71c1c;
+  }
+}
+
+// ✅ Bouton burger (mobile)
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1000; 
+  margin-right: 1rem;
+  width: 30px; 
+  height: 24px;
+
+  .bar {
+    width: 100%;
+    height: 2px;
+    background: #333;
+    transition: all 0.3s ease;
+  }
+}
+
+// ✅ Menu mobile déroulant
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  a {
+    padding: 0.6rem 0;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+
+    &:hover {
+      color: #A8C3A0;
+    }
+  }
+
+  .mobileAdmin {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+
+    p {
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+      color: #666;
+    }
+
+    a {
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .logout {
+    margin-top: 1rem;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #b71c1c;
+    }
+  }
+}
+
+// ✅ Responsive
+@media (max-width: 768px) {
+  .center {
+    display: none;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
   }
 }
