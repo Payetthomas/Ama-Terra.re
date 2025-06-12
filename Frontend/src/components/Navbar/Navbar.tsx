@@ -54,9 +54,9 @@ const Navbar = () => {
               {adminOpen && (
                 <div className={styles.dropdown}>
                   <Link to="/admin/newsletter" onClick={() => setAdminOpen(prev => !prev)}>Newsletters</Link>
-                  <Link to="/admin/ajout-produit" onClick={() => setAdminOpen(prev => !prev)}>Ajouter produit</Link>
-                  <Link to="/admin/stock-produit" onClick={() => setAdminOpen(prev => !prev)}>Stock produits</Link>
-                  <Link to="/admin/promotion-produit" onClick={() => setAdminOpen(prev => !prev)}>Promotions</Link>
+                  <Link to="/admin/stock-produit" onClick={() => setAdminOpen(prev => !prev)}>Gestion des produits</Link>
+                  <Link to="/admin/event" onClick={() => setAdminOpen(prev => !prev)}>Gestion des ateliers</Link>
+                  <Link to="/admin/promotion-produit" onClick={() => setAdminOpen(prev => !prev)}>Gestion des promotions</Link>
                 </div>
               )}
             </div>

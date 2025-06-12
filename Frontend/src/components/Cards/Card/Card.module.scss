@@ -1,13 +1,13 @@
 .card {
   width: 100%;
-  max-width: 200px;
-  max-height: 350px; 
+  max-width: 400px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   border-radius: 16px;
   overflow: hidden;
   background-color: #fdfdfb;
-  box-shadow: 0 4px 12px rgba(60, 60, 60, 0.10);
+  box-shadow: 0 4px 12px rgba(60, 60, 60, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 
@@ -18,9 +18,9 @@
 }
 
 .image {
-  height: 200px; // correspond à l'image transformée
+  height: 200px;
   flex-shrink: 0;
-  background-color: #FAFAF5;
+  background-color: #f0f4f3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,32 +29,34 @@
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain; 
-    object-position: center;
+    object-fit: contain;
     display: block;
   }
 }
 
 .content {
-  flex: 1;
+  padding: 0.6rem 0.8rem;
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: flex-start; 
+  gap: 0.4rem;
   background-color: white;
+  flex: 1; 
 }
 
 .titleWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0.3rem;
 }
 
 .title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #475645;
   text-align: center;
-  line-height: 1.4;
+  line-height: 1.3;
   word-break: break-word;
 }
 
@@ -66,47 +68,47 @@
   font-weight: 600;
   padding: 0.3rem 0.6rem;
   border-radius: 999px;
-  margin: 0.4rem auto 0;
+  margin: 0.2rem auto 0;
 }
 
 .priceRow {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 0.5rem;
-  margin: 0.8rem 0;
+  gap: 0.3rem; // réduit
+  margin: 0.3rem 0;
 }
 
 .oldPrice {
   text-decoration: line-through;
   color: #999;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .price {
   font-weight: bold;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #4c6f52;
 }
 
 .noPromoPrice {
   text-align: center;
-  margin-bottom: 0.8rem;
   font-weight: bold;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #4c6f52;
+  margin: 0.3rem 0;
 }
 
 .button {
+  margin-top: auto; // 🔥 force le bouton à descendre tout en bas
   align-self: center;
-  margin-bottom: 0.4rem;
-  padding: 0.4rem 1.4rem;
+  padding: 0.45rem 1.1rem;
   background-color: #b6d2b0;
   color: #2e3e2d;
   border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  transition: background 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
   border: none;
   cursor: pointer;
 
@@ -115,10 +117,10 @@
   }
 }
 
-// Responsive
+// Responsive mobile
 @media (max-width: 600px) {
-  .card {
-    height: 520px;
+  .image {
+    height: 300px;
   }
 
   .title {

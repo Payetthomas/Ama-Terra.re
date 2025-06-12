@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./AddProduct.module.scss";
-import { Tcategory } from "../../@types/catTypes.ts";
+import { TCategory } from "../../@types/catTypes.ts";
 import { TSupplier } from "../../@types/supplierTypes.ts";
 import { useParams } from "react-router-dom";
 
@@ -191,7 +191,7 @@ const AddProduct = () => {
         <div className={styles.inlineField}>
           <select name="category_id" value={form.category_id} onChange={handleChange} required>
             <option value=""> -- Sélectionner une catégorie -- </option>
-            {categories.map((cat: Tcategory) => (
+            {categories.map((cat: TCategory) => (
               <option key={cat.id} value={cat.id}> {cat.name} </option>
             ))}
           </select>

@@ -4,11 +4,11 @@ import CardProduct from "../../components/Cards/Card/Card";
 import { TProduct } from "../../@types/cardTypes";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import { Tcategory } from "../../@types/catTypes";
+import { TCategory } from "../../@types/catTypes";
 
 const Catalogues = () => {
   const [products, setProducts] = useState<TProduct[]>([]);
-  const [categories, setCategories] = useState<Tcategory[]>([]);
+  const [categories, setCategories] = useState<TCategory[]>([]);
   const [openCat, setOpenCat] = useState(false);
   const location = useLocation();
 
@@ -76,7 +76,7 @@ const Catalogues = () => {
 
             {openCat && (
               <ul className={styles.dropdown}>
-                {categories.map((category: Tcategory) => (
+                {categories.map((category: TCategory) => (
                   <li
                     key={category.id}
                     onClick={() => {

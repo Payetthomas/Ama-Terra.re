@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .home-page {
   background-color: #FAFAF5; // offWhite
   color: #333;
@@ -13,8 +15,6 @@
     }
 
     section {
-      padding: 4rem 0;
-      
 
       &.white {
         background-color: #ffffff;
@@ -26,6 +26,7 @@
       }
 
       &.values {
+        padding: 2rem;
         .grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -48,6 +49,9 @@
       }
 
       &.products {
+
+        padding: 2rem;
+
         .home-card {
           display: grid;
           grid-template-columns: repeat(auto-fit, 300px);
@@ -75,48 +79,33 @@
       }
 
       &.workshops {
-        .workshop-card {
-          background-color: #F4EBD0; // sand
-          padding: 2rem;
-          border-radius: 12px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-          text-align: center;
 
-          h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-          }
+        padding: 2rem;
 
-          p {
-            margin: 0.25rem 0;
-            color: #555;
-          }
-
-          a {
-            display: inline-block;
-            margin-top: 1rem;
-            background-color: #A8C3A0;
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 999px;
-            text-decoration: none;
-            transition: background 0.3s ease;
-
-            &:hover {
-              background-color: #7ba278;
-            }
-          }
+        .columns {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+          justify-content: center;
+          gap: $spacing-lg;
+          margin-top: $spacing-md;
         }
       }
 
       &.team {
-        margin-bottom: 4rem;
+
+        padding: 2rem;
+
+        .columns {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          justify-content: center;
+        }
+
         .grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
           gap: 2rem;
-          justify-items: center; // 💡 Centrage horizontal des enfants
+          justify-items: center;
         }
       
         .member {

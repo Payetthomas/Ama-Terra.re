@@ -1,0 +1,28 @@
+@import './variables';
+@import './reset';
+@import './layout';
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #root {
+    height: 100%;
+  }
+  
+  .app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .layout-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main {
+    flex: 1; // Prend l’espace disponible
+  }
