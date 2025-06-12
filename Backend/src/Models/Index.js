@@ -39,10 +39,6 @@ Product.belongsTo(Supplier, { foreignKey: "supplier_id", as: "supplier" });
 Category.hasMany(Product, { foreignKey: "category_id", as: "products" });
 Supplier.hasMany(Product, { foreignKey: "supplier_id" });
 
-// Event → Category
-Event.belongsTo(Category, { foreignKey: "category_id", as: "category" });
-Category.hasMany(Event, { foreignKey: "category_id" });
-
 // Order → OrderItem
 Order.hasMany(OrderItem, { foreignKey: "order_id", as: "items" });
 OrderItem.belongsTo(Order, { foreignKey: "order_id", as: "order" });

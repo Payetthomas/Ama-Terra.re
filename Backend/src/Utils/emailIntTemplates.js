@@ -2,7 +2,7 @@ function contactForm(value) {
     
     return `
     <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f8f9fa;">
-      <h2 style="color: #333;">📩 Nouveau message de ${value.name}</h2>
+      <h2 style="color: #333;">📩 Nouveau message de : ${value.name}</h2>
       <p><strong>Email :</strong> ${value.email}</p>
       <p><strong>Objet :</strong> ${value.subject}</p>
       <div style="margin-top: 20px; padding: 15px; background-color: #ffffff; border: 1px solid #ccc;">

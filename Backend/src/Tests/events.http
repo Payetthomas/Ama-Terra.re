@@ -1,0 +1,39 @@
+### 🧪 Création avec intervenant
+POST http://localhost:1818/api/event
+Content-Type: application/json
+
+{
+  "title": "Atelier Yoga du Visage",
+  "description": "Atelier détente et auto-massage",
+  "location": "Saint-Denis",
+  "event_date": "2025-07-05T10:00",
+  "duration": 60,
+  "price": 25,
+  "url": "https://reservationbeaute.fr/ama-terra-97410/prestations-saint-pierre",
+  "seats_avaible": 8,
+  "intervenant": "Sophie Martin"
+}
+
+
+
+### 📋 Voir tous les événements
+GET http://localhost:1818/api/event
+
+
+### 📋 Voir un événement spécifique
+GET http://localhost:1818/api/event/1
+
+
+### 🔄 Mettre à jour un événement
+PUT http://localhost:1818/api/event/1
+Content-Type: application/json
+
+{
+  "title": "Atelier Yoga Énergétique",
+  "price": 30.00,
+  "seats_avaible": 25
+}
+
+
+### ❌ Supprimer un événement
+DELETE http://localhost:1818/api/event/3

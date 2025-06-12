@@ -20,6 +20,16 @@ Event.init(
             type: DataTypes.TEXT
         },
 
+        image: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        
+        image_public_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+
         location: {
             type: DataTypes.STRING
         },
@@ -27,6 +37,16 @@ Event.init(
         event_date: {
             type: DataTypes.DATE, 
             allowNull: false
+        },
+
+        intervenant: {
+            type: DataTypes.STRING,
+            allowNull: true, 
+        },
+
+        duration: {
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
 
         price: {
@@ -43,11 +63,6 @@ Event.init(
         seats_avaible : {
             type: DataTypes.INTEGER,
             defaultValue: 0
-        },
-
-        category_id: {
-            type: DataTypes.INTEGER,
-            references: {model: "category", key: "id"}
         },
 
         created_at: {
