@@ -1,0 +1,60 @@
+@import "../../styles/variables.scss";
+
+.sidebar {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: $radius;
+  padding: $spacing-md;
+  width: 250px;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: $spacing-sm;
+    color: $color-accent;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-md;
+    color: $color-text;
+
+    input,
+    select {
+      margin-top: $spacing-xs;
+      padding: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+
+  .checkbox {
+    flex-direction: row;
+    align-items: center;
+
+    input {
+      margin-right: 0.5rem;
+      width: auto;
+    }
+  }
+
+  .reset {
+    margin-top: $spacing-md;
+    background: $color-secondary;
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: $radius-pill;
+    border: none;
+    cursor: pointer;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: darken($color-secondary, 8%);
+    }
+  }
+}

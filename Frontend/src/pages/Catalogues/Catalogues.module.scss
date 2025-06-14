@@ -1,119 +1,206 @@
 .page {
-    font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+// HERO 
+.hero {
+  background: linear-gradient(to right, #e8f5e9, #ffffff);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
   }
-  
-  // HERO (bandeau haut de page)
-  
-  .hero {
-    background: linear-gradient(to right, #e8f5e9, #ffffff);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
 
-    h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #2e7d32;
-      margin-bottom: 0.5rem;
-    }
+  p {
+    font-size: 1rem;
+    color: #4a4a4a;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+  }
 
-    p {
-      font-size: 1rem;
-      color: #4a4a4a;
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
-    }
+  .catMenu {
+    position: relative;
+    display: inline-block;
+    margin-top: 1.5rem;
+    z-index: 50;
+  }
 
-    .catMenu {
-      position: relative;
-      display: inline-block;
-      margin-top: 1.5rem;
-      z-index: 50;
-    }
-    
-    .selectButton {
-      background: #FAFAF5;
-      color: #2e7d32;
-      border: 2px solid #a8c3a0;
-      padding: 0.8rem 2rem; // ⬅️ plus large
-      border-radius: 9999px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      user-select: none;
-      min-width: 220px; // ⬅️ garantit un minimum visuel
-    
-      &.open {
-        border-bottom-left-radius: 18px; // ⬅️ encore légèrement arrondi
-        border-bottom-right-radius: 18px;
-        background: #ffffff;
-      }
-    }
-    
-    .dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
+  .selectButton {
+    background: #FAFAF5;
+    color: #2e7d32;
+    border: 2px solid #a8c3a0;
+    padding: 0.8rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    user-select: none;
+    min-width: 220px;
+
+    &.open {
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
       background: #ffffff;
-      border: 2px solid #a8c3a0;
-      border-top: none;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-      z-index: 100;
-      padding: 0.5rem 0;
-      animation: fadeIn 0.2s ease-out;
-      overflow: hidden;
-    
-      li {
-        padding: 0.75rem 1.2rem;
-        cursor: pointer;
-        font-size: 0.95rem;
-        color: #4a4a4a;
-        transition: background-color 0.2s ease;
-    
-        &:hover {
-          background-color: #f4ebd0;
-          color: #2e7d32;
-        }
-      }
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-4px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-          
-  }
-  
-  // CATALOGUE (section produits)
-  .catalogue {
-    padding: 4rem 1rem;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 1120px;
-    margin: 0 auto;
-  
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(4, 1fr);
     }
   }
-  
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 2px solid #a8c3a0;
+    border-top: none;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    z-index: 100;
+    padding: 0.5rem 0;
+    animation: fadeIn 0.2s ease-out;
+    overflow: hidden;
+
+    li {
+      padding: 0.75rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: #f4ebd0;
+        color: #2e7d32;
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// CATALOGUE
+.catalogue {
+  padding: 4rem 1rem;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+// Filtres
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+
+  h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 1.2rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #333;
+
+    select,
+    input[type="number"] {
+      margin-top: 0.3rem;
+      width: 100%;
+      padding: 0.4rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+
+      &:focus {
+        outline: none;
+        border-color: #a8c3a0;
+      }
+    }
+  }
+
+  .checkbox {
+    margin-bottom: 1rem;
+    input {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .reset {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #b71c1c;
+    }
+  }
+}
+
+// Product
+.products {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+// Grille des produits
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.empty {
+  display: flex;
+  align-items: center;   
+  justify-content: center;  
+  height: 60vh;             
+  text-align: center;
+  font-size: 1.1rem;
+  color: #888;
+}

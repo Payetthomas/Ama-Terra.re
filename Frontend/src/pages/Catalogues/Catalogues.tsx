@@ -1,109 +1,62 @@
 import { useState, useEffect } from "react";
 import styles from "./Catalogues.module.scss";
 import CardProduct from "../../components/Cards/Card/Card";
+import FilterSidebar from "../../components/FilterSidebar/FilterSidebar";
 import { TProduct } from "../../@types/cardTypes";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
-import { TCategory } from "../../@types/catTypes";
+import { useSearchParams, useLocation } from "react-router-dom";
 
 const Catalogues = () => {
   const [products, setProducts] = useState<TProduct[]>([]);
-  const [categories, setCategories] = useState<TCategory[]>([]);
-  const [openCat, setOpenCat] = useState(false);
+  const [searchParams] = useSearchParams();
   const location = useLocation();
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const res = await axios.get("http://localhost:1818/api/category");
-        setCategories(res.data);
-      } catch (error) {
-        console.error("Erreur de chargement des catégories :", error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        if (location.state) {
-          setProducts(location.state);
-        } else {
-          const res = await axios.get("http://localhost:1818/api/product");
-          setProducts(res.data);
-        }
-      } catch (error) {
-        console.error("Erreur de chargement des produits :", error);
-      }
-    };
-
-    fetchProducts();
-  }, [location.state]);
-
-  const handleFetchByCat = async (categoryId: number) => {
+  const fetchProducts = async () => {
     try {
-      const res = await axios.get(`http://localhost:1818/api/category/${categoryId}`);
-      setProducts(res.data.products);
+      if (location.state) {
+        // Recherche via la barre de recherche
+        setProducts(location.state);
+      } else {
+        const query = searchParams.toString();
+        const res = await axios.get(`http://localhost:1818/api/product?${query}`);
+        setProducts(res.data);
+      }
     } catch (error) {
-      console.error("Erreur de chargement des produits :", error);
+      console.error('Erreur de chargement des produits :', error);
     }
   };
 
+  useEffect(() => {
+    fetchProducts();
+  }, [location.state, searchParams]);
+
   return (
-
     <div className={styles.page}>
-
       <section className={styles.hero}>
-
         <div className={styles.container}>
-
           <h2>Nos produits naturels</h2>
-
           <p>
             Tous nos produits sont sélectionnés avec soin, en favorisant le local
             et l’artisanal ✨
           </p>
-
-          <div className={styles.catMenu}>
-            <div
-              className={`${styles.selectButton} ${openCat ? styles.open : ""}`}
-              onClick={() => setOpenCat((prev) => !prev)}
-            >
-              Catégories {openCat ? "⏶" : "⏷"}
-            </div>
-
-            {openCat && (
-              <ul className={styles.dropdown}>
-                {categories.map((category: TCategory) => (
-                  <li
-                    key={category.id}
-                    onClick={() => {
-                      handleFetchByCat(category.id);
-                      setOpenCat(false);
-                    }}
-                  >
-                    {category.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
         </div>
-
       </section>
 
       <section className={styles.catalogue}>
-        <div className={styles.grid}>
-          {products.length === 0 ? (
-            <p>Aucun produit dans cette catégorie</p>
-          ) : (
-            products.map((product: TProduct) => (
-              <CardProduct key={product.id} {...product} />
-            ))
-          )}
+        <div className={styles.layout}>
+          <FilterSidebar />
+
+          <div className={styles.products}>
+            {products.length === 0 ? (
+              <p className={styles.empty}>Aucun produit ne correspond à vos filtres 😕</p>
+            ) : (
+              <div className={styles.grid}>
+                {products.map((product: TProduct) => (
+                  <CardProduct key={product.id} {...product} />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </div>

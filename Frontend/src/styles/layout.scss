@@ -9,6 +9,7 @@
 .main {
   flex: 1; // 🔥 Prend tout l’espace restant entre header et footer
   background-color: $color-bg;
+  padding-top: 80px; 
 }
 
 .container {
