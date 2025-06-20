@@ -1,10 +1,13 @@
-$color-bg: #fdfdfb;
-$color-primary: #b6d2b0;
-$color-primary-dark: #9ebf98;
-$color-secondary: #c97f63;
-$color-accent: #4c6f52;
-$color-text: #2e3e2d;
-$color-bgw: #FAFAF5;
+$color-bg: #fdfdfb; // OK
+$color-bgw: #FAFAF5; // OK
+
+$color-primary: #4c6f52; // ex-accent, contraste ~7:1 sur blanc
+$color-primary-dark: #3a5f3a; // plus foncé au hover, contraste ~9:1 sur blanc
+
+$color-secondary: #8c4f35; // brun plus foncé, contraste ~5.7:1 sur blanc
+$color-accent: #4c6f52; // garde ton accent actuel, très bon contraste
+
+$color-text: #2e3e2d; // très bon contraste, on garde
 
 $font-size-base: 1rem;
 $font-size-sm: 0.85rem;

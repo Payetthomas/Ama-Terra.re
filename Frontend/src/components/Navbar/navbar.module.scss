@@ -1,18 +1,18 @@
 .header {
   background: white;
-  padding: 1rem 0;
-  position: fixed;        
-  top: 0;           
+  padding: 1.1rem 0;
+  font-size: 1.1rem;
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;   
-  z-index: 1000; 
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); 
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
-  padding-top: 80px;
   padding: 0 1rem;
   display: flex;
   align-items: center;
@@ -26,10 +26,9 @@
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #A8C3A0;
+  color: #4C6F52; // meilleur contraste
 }
 
-// Menu de navigation desktop
 .center {
   flex: 2;
   display: flex;
@@ -43,7 +42,7 @@
     font-weight: 500;
 
     &:hover {
-      color: #A8C3A0;
+      color: #4C6F52; // meilleur contraste
     }
   }
 
@@ -60,7 +59,7 @@
       font-size: 1rem;
 
       &:hover {
-        color: #A8C3A0;
+        color: #4C6F52; // meilleur contraste
       }
     }
 
@@ -86,7 +85,7 @@
 
         &:hover {
           background: #f5f5f5;
-          color: #A8C3A0;
+          color: #4C6F52; // meilleur contraste
         }
       }
     }
@@ -110,12 +109,12 @@
   cursor: pointer;
 
   &:hover {
-    border-color: #A8C3A0;
+    border-color: #4C6F52; // meilleur contraste
   }
 }
 
 .btn {
-  background: #A8C3A0;
+  background: #4C6F52; // bouton accessible
   color: white;
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
@@ -123,7 +122,7 @@
   font-size: 0.9rem;
 
   &:hover {
-    background: #8cae85;
+    background: #3A5F3A; // hover bien lisible
   }
 }
 
@@ -148,16 +147,15 @@
   }
 }
 
-// Menu burger
 .burger {
   display: none;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
   cursor: pointer;
-  z-index: 1000; 
+  z-index: 1000;
   margin-right: 1rem;
-  width: 30px; 
+  width: 30px;
   height: 24px;
 
   .bar {
@@ -168,7 +166,6 @@
   }
 }
 
-// Menu déroulant
 .mobileMenu {
   position: absolute;
   top: 100%;
@@ -187,7 +184,7 @@
     font-weight: 500;
 
     &:hover {
-      color: #A8C3A0;
+      color: #4C6F52; // meilleur contraste
     }
   }
 
@@ -199,7 +196,7 @@
     p {
       font-weight: bold;
       margin-bottom: 0.3rem;
-      color: #666;
+      color: #333; 
     }
 
     a {
@@ -223,7 +220,6 @@
   }
 }
 
-// ✅ Responsive
 @media (max-width: 768px) {
   .center {
     display: none;

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /private
+Disallow: /temp
+
+Sitemap: https://ama-terra.re/sitemap.xml

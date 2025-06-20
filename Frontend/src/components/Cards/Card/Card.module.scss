@@ -38,10 +38,10 @@
   padding: 0.6rem 0.8rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   gap: 0.4rem;
   background-color: white;
-  flex: 1; 
+  flex: 1;
 }
 
 .titleWrapper {
@@ -62,7 +62,7 @@
 
 .badge {
   display: inline-block;
-  background-color: #c97f63;
+  background-color: #8C4F35; // brun plus foncé pour contraste
   color: white;
   font-size: 0.75rem;
   font-weight: 600;
@@ -75,13 +75,13 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 0.3rem; // réduit
+  gap: 0.3rem;
   margin: 0.3rem 0;
 }
 
 .oldPrice {
   text-decoration: line-through;
-  color: #999;
+  color: #666; // gris plus foncé pour contraste
   font-size: 0.9rem;
 }
 
@@ -100,11 +100,11 @@
 }
 
 .button {
-  margin-top: auto; // 🔥 force le bouton à descendre tout en bas
+  margin-top: auto;
   align-self: center;
   padding: 0.45rem 1.1rem;
-  background-color: #b6d2b0;
-  color: #2e3e2d;
+  background-color: #4c6f52; // vert foncé = contraste
+  color: white; // texte lisible
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -113,11 +113,10 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #9ebf98;
+    background-color: #3A5F3A; // encore plus foncé au hover
   }
 }
 
-// Responsive mobile
 @media (max-width: 600px) {
   .image {
     height: 300px;

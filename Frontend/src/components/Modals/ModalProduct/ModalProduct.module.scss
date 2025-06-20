@@ -25,7 +25,7 @@
   font-size: 1.8rem;
   background: transparent;
   border: none;
-  color: #666;
+  color: #333; // meilleur contraste
   cursor: pointer;
 }
 
@@ -75,7 +75,7 @@
   margin-top: 0.5rem;
 
   .badge {
-    background: #f44336;
+    background: #c62828; // rouge plus foncé, meilleur contraste
     color: white;
     font-size: 0.75rem;
     font-weight: bold;
@@ -88,7 +88,7 @@
   .oldPrice {
     font-size: 0.9rem;
     text-decoration: line-through;
-    color: #888;
+    color: #666; // meilleur contraste
   }
 }
 
@@ -98,10 +98,10 @@
   color: #2e7d32;
 }
 
-/*.button {
+.button {
   margin-top: 1rem;
   align-self: flex-start;
-  background-color: #A8C3A0;
+  background-color: #4c6f52; // vert foncé accessible
   color: white;
   padding: 0.6rem 1.4rem;
   font-size: 0.9rem;
@@ -111,6 +111,6 @@
   transition: background 0.2s ease;
 
   &:hover {
-    background-color: #8cae85;
+    background-color: #3A5F3A; // encore plus foncé au hover
   }
-}*/
+}

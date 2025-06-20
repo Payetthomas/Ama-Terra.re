@@ -1,5 +1,3 @@
-
-
 export type TPromotion = {
     id: number;
     title: string;
@@ -8,10 +6,10 @@ export type TPromotion = {
     value: number;
     start_date: string;
     end_date: string;
-    products?: TProductPromo[]; 
-  };
+    products?: TProductPromo[];
+};
 
-  export type TProductPromo = {
+export type TProductPromo = {
     id: number;
     title: string;
-  };
+};
