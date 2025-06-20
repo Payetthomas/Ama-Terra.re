@@ -53,8 +53,23 @@ export const productController = {
 
     getAll: async (req, res) => {
 
+        const { category, promo, minPrice, maxPrice, inStock, supplier } = req.query;
+
+        const where = {};
+
+        if (category) where.category_id = category;
+        if (promo === "true") where["$promotions.id$"] = { [Op.ne]: null };
+        if (inStock === "true") where.stock = { [Op.gt]: 0 };
+        if (supplier) where.supplier_id = supplier;
+        if (minPrice || maxPrice) {
+            where.price = {};
+            if (minPrice) where.price[Op.gte] = parseFloat(minPrice);
+            if (maxPrice) where.price[Op.lte] = parseFloat(maxPrice);
+        }
+
         try {
             const products = await Product.findAll({
+                where,
                 include: [
                     {
                         model: Category,
