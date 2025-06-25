@@ -115,28 +115,7 @@ const ModalPromotion = ({
                 </h2>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
-                    <div className={styles.productsList}>
-                        <label>Produits concernés :</label>
-                        <div className={styles.checkboxes}>
-                            {products.map((product) => (
-                                <label
-                                    key={product.id}
-                                    className={styles.checkboxItem}
-                                >
-                                    <input
-                                        type="checkbox"
-                                        checked={selectedProducts.includes(
-                                            product.id,
-                                        )}
-                                        onChange={() =>
-                                            toggleProductSelection(product.id)
-                                        }
-                                    />
-                                    <span>{product.title}</span>
-                                </label>
-                            ))}
-                        </div>
-                    </div>
+                    
 
                     <select
                         name="type"
@@ -190,6 +169,36 @@ const ModalPromotion = ({
                         onChange={handleChange}
                         placeholder="Description (facultatif)"
                     />
+
+                    <div className={styles.productsList}>
+                        <label>Produits concernés :</label>
+                        <div className={styles.productSelector}>
+                            {products.map((product) => (
+                                <div
+                                    key={product.id}
+                                    className={`${styles.productCard} ${selectedProducts.includes(product.id) ? styles.selected : ""}`}
+                                    onClick={() => toggleProductSelection(product.id)}
+                                >
+                                    <img
+                                        src={product.image || "/images/placeholder.png"}
+                                        alt={product.title}
+                                    />
+                                    <div className={styles.info}>
+                                        <h4>{product.title}</h4>
+                                        {product.price && <p>{product.price} €</p>}
+                                    </div>
+                                    <input
+                                        type="checkbox"
+                                        checked={selectedProducts.includes(product.id)}
+                                        readOnly
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        {selectedProducts.length === 0 && (
+                            <div className={styles.empty}>Aucun produit sélectionné.</div>
+                        )}
+                    </div>
 
                     <button type="submit">
                         {isEdit ? "Modifier" : "Ajouter"}

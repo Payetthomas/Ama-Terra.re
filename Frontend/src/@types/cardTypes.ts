@@ -1,4 +1,4 @@
-import { Tcategory } from "./catTypes";
+import { TCategory } from "./catTypes";
 import { TPromotion } from "./promotionTypes";
 import { TSupplier } from "./supplierTypes";
 
@@ -13,7 +13,7 @@ export type TProduct = {
     supplier_id: number;
     is_featured: boolean;
 
-    category?: Tcategory;
+    category?: TCategory;
 
     supplier?: TSupplier;
 
@@ -23,4 +23,5 @@ export type TProduct = {
 export type TProductPromo = {
     id: number;
     title: string;
+    price: string;
 };

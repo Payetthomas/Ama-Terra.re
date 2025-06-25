@@ -30,7 +30,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* Menu burger visible uniquement en mobile */}
+                {/* Menu burger */}
                 <div
                     className={styles.burger}
                     onClick={() => setMenuOpen(!menuOpen)}
